@@ -1,6 +1,8 @@
 My purpose here is to try and teach myself a little bit of oAuth integration using Twitter as a auth mechanism
 for Flaskr.  Because I only want to run this locally on my dev system I'm not going to implement the oAuth callback.  
 
+I'm going to use Tweepy for my Twitter oAuth integration - e.g. punting on doing my own oAuth impl.
+
 I know, less than the minimum...
 
 rb
