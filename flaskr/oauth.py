@@ -11,15 +11,6 @@ consumer_secret = 'xhbjN0g3xJj1DdoTgwnaYIY2ZLpX6SCdwSnW19o080'
 auth = OAuthHandler(consumer_key, consumer_secret, callback='http://localhost:8080/oauth_callback')
 logger = logging.getLogger()
 
-def get_oauth_redirect_and_request_token():
-
-    try:
-        redirect_url = auth.get_authorization_url()
-    except TweepError as e:
-        logger.error("Failed to get request token: %s", e)
-
-    return redirect_url, auth.request_token
-
 def get_oauth_redirect():
 
     try:
@@ -42,7 +33,6 @@ def get_oauth_access_token(verifier):
 def get_screen_name():
     return auth.get_username()
 
-def get_user(access_token):
-    auth.set_access_token(access_token.key, access_token.secret)
+def get_user():
     api = API(auth_handler = auth)
     return api.me()
