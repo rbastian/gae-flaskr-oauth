@@ -1,8 +1,12 @@
 My purpose here is to try and teach myself a little bit of oAuth integration using Twitter as a auth mechanism
-for Flaskr.  Because I only want to run this locally on my dev system I'm not going to implement the oAuth callback.  
+for Flaskr.
 
-I'm going to use Tweepy for my Twitter oAuth integration - e.g. punting on doing my own oAuth impl.
+I'm going to use Tweepy as my oAuth wrapper.
 
-I know, less than the minimum...
+Originally I chose not to implement the callback and went with a manual verifier.  After some investigation I determined that I could use
+a "localhost" callback url.  So I did.
 
-rb
+The part that still flummoxes me is the authorization/authentication.  Each auth includes an explicit authorization of the app.
+
+It would seem to me that you should only have to authorize an app once, and then login/authentication going forward.
+
