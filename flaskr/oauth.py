@@ -3,11 +3,12 @@ __author__ = 'rbastian'
 from tweepy import OAuthHandler
 from tweepy import TweepError
 from tweepy import API
+
+import settings_local
 import logging
 
-
-consumer_key = 'XRB471TXEeZoarUBOadA'
-consumer_secret = 'xhbjN0g3xJj1DdoTgwnaYIY2ZLpX6SCdwSnW19o080'
+consumer_key = settings_local.consumer_key
+consumer_secret = settings_local.consumer_secret
 auth = OAuthHandler(consumer_key, consumer_secret, callback='http://localhost:8080/oauth_callback')
 logger = logging.getLogger()
 

@@ -10,3 +10,4 @@ The part that still flummoxes me is the authorization/authentication.  Each auth
 
 It would seem to me that you should only have to authorize an app once, and then login/authentication going forward.
 
+I moved my consumer keys and other specific things to a settings_local.py that I did not submit to git hub.

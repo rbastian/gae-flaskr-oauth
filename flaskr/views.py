@@ -4,8 +4,7 @@ from flask import Flask, request, session, g, redirect, url_for,\
     abort, render_template, flash
 from flaskr import app
 from models import Post
-from google.appengine.api import users
-from oauth import get_oauth_redirect, get_oauth_access_token, get_screen_name, get_user
+from oauth import get_oauth_redirect, get_oauth_access_token, get_screen_name
 import logging
 
 logger = logging.getLogger()
@@ -35,9 +34,6 @@ def oauth_callback():
         session['access_token'] = access_token
         session['logged_in'] = True
         flash('Logged in as %s' % get_screen_name())
-        me = get_user()
-        logger.info('me: %s', me)
-        logger.info('id: %s, name: %s, location: %s, profile image url: %s', me.id, me.name, me.location, me.profile_image_url)
     else:
         flash("Twitter denied authorization request!")
 
