@@ -25,9 +25,9 @@ def get_oauth_access_token(verifier):
 
     try:
         auth.get_access_token(verifier)
-        logger.info('successful conversion of request token to auth_token: %s', auth.access_token)
+        logger.info("successful conversion of request token to auth_token: %s", auth.access_token)
     except TweepError as e:
-        logger.error('Caught TweepError: %s, while trying to get access_token')
+        logger.error("Caught TweepError: %s, while trying to get access_token")
 
     return auth.access_token
 
@@ -37,3 +37,10 @@ def get_screen_name():
 def get_user():
     api = API(auth_handler = auth)
     return api.me()
+
+def update_status(status):
+    api = API(auth_handler = auth)
+    try:
+        api.update_status(status=status)
+    except TweepError as e:
+        logger.error("Caught TweepError: %s, while trying to update status", e)

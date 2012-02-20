@@ -7,13 +7,14 @@
         <dd><input type=text size=30 name=title>
         <dt>Text:
         <dd><textarea name=text rows=5 cols=40></textarea>
+        <dd><input type=checkbox name=tweetthis value=True /> Post to Twitter?
         <dd><input type=submit value=Share>
     </dl>
 </form>
 {% endif %}
 <ul class=entries>
     {% for entry in entries %}
-    <li><h2>{{ entry.title }} <em> - {{entry.screen_name}}</em></h2>
+    <li><h2>{{ entry.title }} <em> - {{entry.author.screen_name}}</em></h2>
         {{ entry.content|safe }}
         {% else %}
     <li><em>Unbelievable.  No entries here so far</em>
